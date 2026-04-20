@@ -1,0 +1,127 @@
+:root {
+    --primary-color: #00b7af;
+    --dark-bg: #10181f;
+    --light-text: #ffffff;
+    --secondary-color: #6a7071;
+    --button-bg: #1e2a35;
+    --button-hover: #2a3a4a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--light-text);
+}
+
+.calculator-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+    gap: 12px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.display {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 20px;
+    word-wrap: break-word;
+    word-break: break-all;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.previous-operand {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.current-operand {
+    color: var(--light-text);
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.buttons {
+    display: contents;
+}
+
+.btn {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    background-color: var(--button-bg);
+    color: var(--light-text);
+    border-radius: 16px;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+.btn:hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    font-weight: 700;
+}
+
+.btn-primary:hover {
+    background-color: #00d1c8;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--light-text);
+}
+
+.btn-secondary:hover {
+    background-color: #7e8586;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        grid-template-rows: minmax(100px, auto) repeat(5, 80px);
+        gap: 8px;
+    }
+    .current-operand {
+        font-size: 2rem;
+    }
+}
